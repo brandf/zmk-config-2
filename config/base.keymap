@@ -28,7 +28,7 @@
                 COLEMAK {
                         label = "Colemak";
                         bindings = <
-                                          &kp W              &kp F              &kp P              &kp B                                 &kp J              &kp L              &kp U              &kp Y
+                                          &kp W              &kp F              &kp P              &kp B                                 &bt BT_CLR              &kp L              &kp U              &kp Y
 &kp Q                  &hm LGUI A         &hm LALT R         &hm LCTRL S        &hm LSHFT T        &kp G                                 &kp M              &hm LSHFT N        &hm LCTRL E        &hm LALT I         &hm LGUI O      &mt COLON SEMI
                        &kp Z              &hm RALT X         &kp C              &kp D              &kp V                                 &kp K              &kp H              &kp COMMA          &kp DOT            &kp SLASH
                                                                                 &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
