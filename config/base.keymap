@@ -17,10 +17,11 @@
 #define U_UND &kp LC(Z)
 
 #define COLEMAK 0
-#define NAV 0
-#define NUM 0
-#define SYM 0
-#define FUN 0
+#define QWERTY 1
+#define NAV 2
+#define NUM 3
+#define SYM 4
+#define FUN 5
 
 / {
         keymap {
@@ -28,10 +29,55 @@
                 COLEMAK {
                         label = "Colemak";
                         bindings = <
-                                          &kp W              &kp F              &kp P              &kp B                                 &bt BT_CLR              &kp L              &kp U              &kp Y
-&kp Q                  &hm LGUI A         &hm LALT R         &hm LCTRL S        &hm LSHFT T        &kp G                                 &kp M              &hm LSHFT N        &hm LCTRL E        &hm LALT I         &hm LGUI O      &mt COLON SEMI
+                                          &kp W              &kp F              &kp P              &kp B                                 &kp J              &kp L              &kp U              &kp Y
+&hto QWERTY Q          &hm LGUI A         &hm LALT R         &hm LCTRL S        &hm LSHFT T        &kp G                                 &kp M              &hm LSHFT N        &hm LCTRL E        &hm LALT I         &hm LGUI O      &mt COLON SEMI
                        &kp Z              &hm RALT X         &kp C              &kp D              &kp V                                 &kp K              &kp H              &kp COMMA          &kp DOT            &kp SLASH
                                                                                 &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
+                        >;
+                };
+                QWERTY {
+                        label = "Qwerty";
+                        bindings = <
+                                          &kp W              &kp E              &kp R              &kp T                                 &kp Y              &kp U              &kp I              &kp O
+&hto COLEMAK Q         &hm LGUI A         &hm LALT S         &hm LCTRL D        &hm LSHFT F        &kp G                                 &kp H              &hm LSHFT J        &hm LCTRL K        &hm LALT L         &hm LGUI COLON  &kp P
+                       &kp Z              &hm RALT X         &kp C              &kp V              &kp B                                 &kp N              &kp M              &kp COMMA          &kp DOT            &kp SLASH
+                                                                                &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
+                        >;
+                };
+                NAV {
+                        label = "Nav";
+                        bindings = <
+                                          &none              &none              &none              &kp CAPS                              &kp INS            &kp PG_UP          &kp UP             &none
+&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp HOME           &kp LEFT           &kp DOWN           &kp RIGHT          &kp END         &none
+                       U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &none              &kp PG_DN          &none              &none              &none
+                                                                                &none              &none                                 &kp BSPC           &kp RET
+                        >;
+                };
+                NUM {
+                        label = "Number";
+                        bindings = <
+                                          &none              &none              &none              &none                                 &kp LBKT           &kp NUM_7          &kp NUM_8          &kp NUM_9
+&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp EQL            &kp NUM_4          &kp NUM_5          &kp NUM_6          &kp SEMI         &none
+&none                  U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp BSLH           &kp NUM_1          &kp NUM_2          &kp NUM_3          &kp GRAVE
+                                                                                &none              &none                                 &kp MINUS          &kp NUM_0
+                        >;
+                };
+                SYM {
+                        label = "Symbol";
+                        bindings = <
+                                          &kp AMPS           &kp ASTRK          &kp LPAR           &kp RBRC                              &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP       &kp C_PP
+&none                  &kp COLON          &kp DLLR           &kp PRCT           &kp CRRT           &kp PLUS                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
+                       &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp PIPE                              &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp C_FF
+                                                                                &kp RPAR           &kp UNDER                             &none              &none
+                        >;
+                };
+                FUN {
+                        label = "Func";
+                        bindings = <
+                                          &kp F7             &kp F8             &kp F9             &kp PSCRN                             &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3
+&none                  &kp F11            &kp F4             &kp F5             &kp F6             &kp SLCK                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
+                       &kp F10            &kp F1             &kp F2             &kp F3             &kp PAUSE_BREAK                       &none              &none              &none              &none              &none
+                                                                                &kp TAB            &kp SPC                               &none              &none
                         >;
                 };
 
@@ -55,46 +101,3 @@
                 };
         };
 };
-
-
-/*
-
-
-                NAV {
-                        label = "Nav";
-                        bindings = <
-&out OUT_TOG           &none              &none              &none              &none              &kp CAPS                              &kp INS            &kp PG_UP          &kp UP             &none              &none           &none
-&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp HOME           &kp LEFT           &kp DOWN           &kp RIGHT          &kp END         &none
-&none                  U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &none              &kp PG_DN          &none              &none              &none           &none
-                                                                                &none              &none                                 &kp BSPC           &kp RET
-                        >;
-                };
-                NUM {
-                        label = "Number";
-                        bindings = <
-&bootloader            &none              &none              &none              &none              &none                                 &kp LBKT           &kp NUM_7          &kp NUM_8          &kp NUM_9          &kp RBKT         &none
-&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp EQL            &kp NUM_4          &kp NUM_5          &kp NUM_6          &kp SEMI         &none
-&none                  U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp BSLH           &kp NUM_1          &kp NUM_2          &kp NUM_3          &kp GRAVE        &none
-                                                                                &none              &none                                 &kp MINUS          &kp NUM_0
-                        >;
-                };
-                SYM {
-                        label = "Symbol";
-                        bindings = <
-&none                  &kp LBRC           &kp AMPS           &kp ASTRK          &kp LPAR           &kp RBRC                              &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP       &kp C_PP           &kp C_STOP      &kp C_MENU
-&none                  &kp COLON          &kp DLLR           &kp PRCT           &kp CRRT           &kp PLUS                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
-&none                  &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp PIPE                              &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp C_FF        &none
-                                                                                &kp RPAR           &kp UNDER                             &none              &none              &none
-                        >;
-                };
-                FUN {
-                        label = "Func";
-                        bindings = <
-&kp K_APP              &kp F12            &kp F7             &kp F8             &kp F9             &kp PSCRN                             &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3       &none           &bt BT_CLR
-&none                  &kp F11            &kp F4             &kp F5             &kp F6             &kp SLCK                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
-&none                  &kp F10            &kp F1             &kp F2             &kp F3             &kp PAUSE_BREAK                       &none              &none              &none              &none              &none           &none
-                                                                                &kp TAB            &kp SPC                               &none              &none              &none
-                        >;
-                };
-
-                */
