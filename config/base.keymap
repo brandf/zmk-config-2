@@ -1,139 +1,100 @@
+/*
+*
+* Copyright (c) 2021 Darryl deHaan
+* SPDX-License-Identifier: MIT
+*
+*/
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
-#define MAIN 0
-#define SYM_LMOD 1
-#define NUM_RMOD 2
-#define NAV 3
-#define FN 4
+#define U_RDO &kp LC(Y)
+#define U_PST &kp LC(V)
+#define U_CPY &kp LC(C)
+#define U_CUT &kp LC(X)
+#define U_UND &kp LC(Z)
 
-&mt {
-    flavor = "tap-preferred";
-    tapping_term_ms = <180>;
-};
+#define COLEMAK 0
+#define NAV 0
+#define NUM 0
+#define SYM 0
+#define FUN 0
 
 / {
-    behaviors {
-        semi_tilde: semi_tilde {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SEMI_TILDE";
-            #binding-cells = <0>;
-            bindings = <&kp SEMI>, <&kp TILDE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        keymap {
+                compatible = "zmk,keymap";
+                COLEMAK {
+                        label = "Colemak";
+                        bindings = <
+                                          &kp W              &kp F              &kp P              &kp B                                 &kp J              &kp L              &kp U              &kp Y
+&kp Q                  &hm LGUI A         &hm LALT R         &hm LCTRL S        &hm LSHFT T        &kp G                                 &kp M              &hm LSHFT N        &hm LCTRL E        &hm LALT I         &hm LGUI O      &mt COLON SEMI
+                       &kp Z              &hm RALT X         &kp C              &kp D              &kp V                                 &kp K              &kp H              &kp COMMA          &kp DOT            &kp SLASH
+                                                                                &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
+                        >;
+                };
+
         };
-
-        dot_dllr: dot_dllr {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOT_DLLR";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp DLLR>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        behaviors {
+                hm: homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        tapping_term_ms = <250>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+                };
+                hto: hold_to {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOLD TO";
+                        #binding-cells = <2>;
+                        tapping_term_ms = <350>;
+                        flavor = "tap-preferred";
+                        bindings = <&to>, <&kp>;
+                };
         };
-
-        comma_at: comma_at {
-            compatible = "zmk,behavior-mod-morph";
-            label = "COMMA_AT";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp AT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        skq: sticky_key_quick_release {
-            compatible = "zmk,behavior-sticky-key";
-            label = "STICKY_KEY_QUICK_RELEASE";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <1000>;
-            quick-release;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <30>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-            layers = <0>;
-        };
-
-        combo_tab {
-            timeout-ms = <30>;
-            key-positions = <1 2>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
-
-        combo_rbrc {
-            timeout-ms = <30>;
-            key-positions = <6 7>;
-            bindings = <&kp RBRC>;
-            layers = <1>;
-        };
-
-        combo_rpar {
-            timeout-ms = <30>;
-            key-positions = <16 17>;
-            bindings = <&kp RPAR>;
-            layers = <1>;
-        };
-
-        combo_rbkt {
-            timeout-ms = <30>;
-            key-positions = <27 28>;
-            bindings = <&kp RBKT>;
-            layers = <1>;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        MAIN_layer {
-            bindings = <
-                        &kp F &kp M &kp P        &kp V            &semi_tilde &dot_dllr    &kp FSLH &kp AMPS
-            &kp Z &kp R &kp S &kp N &kp T        &kp B            &comma_at   &kp A        &kp E    &kp C    &kp I &kp SQT
-                  &kp X &kp G &kp H &kp D        &kp K            &kp MINUS   &kp U        &kp O    &kp W    &kp Y
-                                    &sl SYM_LMOD &lt NAV SPC      &lt FN L    &sl NUM_RMOD
-            >;
-        };
-
-        SYM_LMOD_layer {
-            bindings = <
-                                       &kp LS(LC(TAB)) &kp LC(TAB) &kp CAPS   &none          &kp COLON &kp LBRC  &kp QMARK &kp HASH
-            &kp LA(LEFT) &kp LA(RIGHT) &sk LALT        &sk LCTRL   &skq LSHFT &kp PSCRN      &kp LT    &kp LPAR  &kp EXCL  &kp GT   &kp GRAVE &kp DQT
-                         &none         &kp LC(W)       &kp LC(Q)   &sk LGUI   &none          &kp UNDER &kp LBKT  &kp Q     &kp J    &kp PRCNT
-                                                                   &none      &none          &kp BSPC  &kp ENTER
-            >;
-        };
-
-        NUM_RMOD_layer {
-            bindings = <
-                               &kp N7 &kp N8 &kp N9  &kp STAR       &none &kp CAPS   &none        &none
-            &kp PIPE &kp BSLH  &kp N1 &kp N2 &kp N3  &kp EQUAL      &none &skq RSHFT &sk RCTRL    &sk RALT  &none &none
-                     &kp CARET &kp N4 &kp N5 &kp N6  &kp PLUS       &none &sk RGUI   &sk LS(RGUI) &kp LC(C) &none
-                                             &kp DOT &kp N0         &none &none
-            >;
-        };
-
-        NAV_layer {
-            bindings = <
-                                &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &kp C_MUTE      &sk RA(GUI) &kp LG(D)     &kp LS(LG(D)) &kp LG(Q)
-            &kp C_PREV &kp LEFT &kp DOWN     &kp UP       &kp RIGHT  &kp C_PP        &sk RALT    &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(UP) &kp LG(RIGHT) &none
-                       &kp HOME &kp PG_DN    &kp PG_UP    &kp END    &kp C_STOP      &sk RCTRL   &kp LG(ENTER) &kp LG(O)     &kp LG(N)  &sk RA(RCTRL)
-                                                          &none      &none           &kp DEL     &sk RSHFT
-            >;
-        };
-
-        FN_layer {
-            bindings = <
-                        &kp F7 &kp F8 &kp F9 &kp F10      &none &kp C_BRI_DN &kp C_BRI_UP &none
-            &none &none &kp F1 &kp F2 &kp F3 &kp F11      &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                  &none &kp F4 &kp F5 &kp F6 &kp F12      &none &bt BT_CLR   &none        &none        &none
-                                      &none  &none        &none &none
-            >;
-        };
-    };
 };
+
+
+/*
+
+
+                NAV {
+                        label = "Nav";
+                        bindings = <
+&out OUT_TOG           &none              &none              &none              &none              &kp CAPS                              &kp INS            &kp PG_UP          &kp UP             &none              &none           &none
+&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp HOME           &kp LEFT           &kp DOWN           &kp RIGHT          &kp END         &none
+&none                  U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &none              &kp PG_DN          &none              &none              &none           &none
+                                                                                &none              &none                                 &kp BSPC           &kp RET
+                        >;
+                };
+                NUM {
+                        label = "Number";
+                        bindings = <
+&bootloader            &none              &none              &none              &none              &none                                 &kp LBKT           &kp NUM_7          &kp NUM_8          &kp NUM_9          &kp RBKT         &none
+&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp EQL            &kp NUM_4          &kp NUM_5          &kp NUM_6          &kp SEMI         &none
+&none                  U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp BSLH           &kp NUM_1          &kp NUM_2          &kp NUM_3          &kp GRAVE        &none
+                                                                                &none              &none                                 &kp MINUS          &kp NUM_0
+                        >;
+                };
+                SYM {
+                        label = "Symbol";
+                        bindings = <
+&none                  &kp LBRC           &kp AMPS           &kp ASTRK          &kp LPAR           &kp RBRC                              &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP       &kp C_PP           &kp C_STOP      &kp C_MENU
+&none                  &kp COLON          &kp DLLR           &kp PRCT           &kp CRRT           &kp PLUS                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
+&none                  &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp PIPE                              &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp C_FF        &none
+                                                                                &kp RPAR           &kp UNDER                             &none              &none              &none
+                        >;
+                };
+                FUN {
+                        label = "Func";
+                        bindings = <
+&kp K_APP              &kp F12            &kp F7             &kp F8             &kp F9             &kp PSCRN                             &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3       &none           &bt BT_CLR
+&none                  &kp F11            &kp F4             &kp F5             &kp F6             &kp SLCK                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
+&none                  &kp F10            &kp F1             &kp F2             &kp F3             &kp PAUSE_BREAK                       &none              &none              &none              &none              &none           &none
+                                                                                &kp TAB            &kp SPC                               &none              &none              &none
+                        >;
+                };
+
+                */
