@@ -71,10 +71,10 @@
                 SYM {
                         label = "Symbol";
                         bindings = <
-                                          &kp AMPS           &kp ASTRK          &kp LPAR           &kp RBRC                              &kp C_MUTE         &kp C_VOL_DN       &kp C_VOL_UP       &kp C_PP
-&none                  &kp COLON          &kp DLLR           &kp PRCT           &kp CRRT           &kp PLUS                              &none              &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &none
-                       &kp TILDE          &kp EXCL           &kp AT             &kp HASH           &kp PIPE                              &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp C_FF
-                                                                                &kp RPAR           &kp UNDER                             &none              &none
+                                          &kp TILDE          &kp LPAR           &kp RPAR           &kp DQT                               &kp EXCLAMATION    &kp AT_SIGN        &kp HASH           &kp DOLLAR
+&kp ESC                &kp SLASH          &kp BACKSLASH      &kp LBRC           &kp RBRC           &kp SQT                               &kp PERCENT        &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &kp CARET
+                       &kp LESS_THAN      &kp GREATER_THAN   &kp LBKT           &kp RBKT           &kp GRAVE                             &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp PIPE
+                                                                                &kp TAB            &kp SPC                               &none              &none
                         >;
                 };
                 FUN {
