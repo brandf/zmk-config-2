@@ -53,9 +53,9 @@
                 NAV {
                         label = "Nav";
                         bindings = <
-                                          &none              &none              &none              &kp CAPS                              &kp PG_UP          &none              &kp UP             &kp DEL
-&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp HOME           &kp LEFT           &kp DOWN           &kp RIGHT          &kp END          &kp INS
-                       U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp PG_DN          &none              &none              &none              &kp K_APP
+                                          &none              &none              &none              &kp CAPS                              &kp PG_UP          &none              &kp UP             &none
+&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp PG_DN          &kp LEFT           &kp DOWN           &kp RIGHT          &kp DEL          &kp INS
+                       U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp HOME           &kp END            &none              &none              &kp K_APP
                                                                                 &none              &none                                 &kp BSPC           &kp RET
                         >;
                 };
