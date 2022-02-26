@@ -37,7 +37,7 @@
                         bindings = <
                                           &kp W              &kp F              &kp P              &kp B                                 &kp J              &kp L              &kp U              &kp Y
 &hto QWERTY Q          &hm LGUI A         &hm LALT R         &hm LCTRL S        &hm LSHFT T        &kp G                                 &kp M              &hm LSHFT N        &hm LCTRL E        &hm LALT I         &hm LGUI O      &mt COLON SEMI
-                       &kp Z              &hm RALT X         &kp C              &kp D              &kp V                                 &kp K              &kp H              &kp COMMA          &kp DOT            &kp SLASH
+                       &kp Z              &hm RALT X         &kp C              &kp D              &kp V                                 &kp K              &kp H              &kp COMMA          &kp DOT            &kp QUESTION
                                                                                 &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
                         >;
                 };
@@ -46,16 +46,16 @@
                         bindings = <
                                           &kp W              &kp E              &kp R              &kp T                                 &kp Y              &kp U              &kp I              &kp O
 &hto COLEMAK Q         &hm LGUI A         &hm LALT S         &hm LCTRL D        &hm LSHFT F        &kp G                                 &kp H              &hm LSHFT J        &hm LCTRL K        &hm LALT L         &hm LGUI COLON  &kp P
-                       &kp Z              &hm RALT X         &kp C              &kp V              &kp B                                 &kp N              &kp M              &kp COMMA          &kp DOT            &kp SLASH
+                       &kp Z              &hm RALT X         &kp C              &kp V              &kp B                                 &kp N              &kp M              &kp COMMA          &kp DOT            &kp QUESTION
                                                                                 &lt NUM TAB        &lt NAV SPC                           &lt SYM BSPC       &lt FUN RET
                         >;
                 };
                 NAV {
                         label = "Nav";
                         bindings = <
-                                          &none              &none              &none              &kp CAPS                              &kp PG_UP          &none              &kp UP             &none
-&none                  &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp PG_DN          &kp LEFT           &kp DOWN           &kp RIGHT          &kp DEL          &kp INS
-                       U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp HOME           &kp END            &none              &none              &kp K_APP
+                                          &none              &none              &none              &kp CAPS                              &kp PG_UP          &kp INS            &kp UP             &kp DEL
+&kp ESC                &kp LGUI           &kp LALT           &kp LCTRL          &kp LSHFT          &none                                 &kp PG_DN          &kp LEFT           &kp DOWN           &kp RIGHT          &none           &kp K_APP
+                       U_UND              U_CUT              U_CPY              U_PST              U_RDO                                 &kp HOME           &kp END            &none              &none              &none
                                                                                 &none              &none                                 &kp BSPC           &kp RET
                         >;
                 };
@@ -72,8 +72,8 @@
                         label = "Symbol";
                         bindings = <
                                           &kp TILDE          &kp LPAR           &kp RPAR           &kp DQT                               &kp EXCLAMATION    &kp AT_SIGN        &kp HASH           &kp DOLLAR
-&kp ESC                &kp SLASH          &kp BACKSLASH      &kp LBRC           &kp RBRC           &kp SQT                               &kp PERCENT        &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &kp CARET
-                       &kp LESS_THAN      &kp GREATER_THAN   &kp LBKT           &kp RBKT           &kp GRAVE                             &none              &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp PIPE
+&kp GRAVE              &kp SLASH          &kp BACKSLASH      &kp LBRC           &kp RBRC           &kp SQT                               &kp PERCENT        &kp LSHFT          &kp LCTRL          &kp LALT           &kp LGUI        &kp CARET
+                       &none              &none              &kp LBKT           &kp RBKT           &kp UNDERSCORE                        &kp AMPERSAND      &kp C_PREV         &kp K_NEXT         &kp C_RW           &kp PIPE
                                                                                 &kp TAB            &kp SPC                               &none              &none
                         >;
                 };
