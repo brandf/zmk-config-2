@@ -56,6 +56,8 @@
                                                                                      &lt NUM BSPC       &lt NAV E                 &lt SYM SPC        &lt FUN RET
 /*                                                                               ╚═══════════════════╩═════════════════╝        ╚═════════════════╩═══════════════════╝                                                                               */
                              >;
+                    };
+
                      NAV {
                              label = "Nav";
                              bindings = <
