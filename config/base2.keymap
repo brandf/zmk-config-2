@@ -10,12 +10,10 @@
 #define U_UND &kp LC(Z)
 
 #define COLEMAK 0
-#define QWERTY 1
-#define GAME 2
-#define NAV 3
-#define NUM 4
-#define SYM 5
-#define FUN 6
+#define NAV 1
+#define NUM 2
+#define SYM 3
+#define FUN 4
 
 /*
 *
@@ -28,6 +26,18 @@
 * 6) thumb tap actions should remain consistent on all layers unless being overriden by a primary action
 * 7) avoid duplicates - decisions are bad, KC_NO is fine
 * 8) arrange open/close and left/right things horizontally, up/down things vertically
+*/
+
+/*
+             ╔═════╦═════╦═════╦═════╗    ╔═════╦═════╦═════╦═════╗
+                C     Y     F     K          Z     L     ,     U
+ ╔═════╦═════╬═════╬═════╬═════╬═════╣    ╠═════╬═════╬═════╬═════╬═════╦═════╗
+    J     R     S     T     H     D          M     N     A     I     O     ;
+ ╚═════╬═════╬═════╬═════╬═════╬═════╣    ╠═════╬═════╬═════╬═════╬═════╬═════╝
+          Z     V     G     P     B          X     W     .     Q     ?
+       ╚═════╩═════╩═════╬═════╬═════╣    ╠═════╬═════╬═════╩═════╩═════╝
+                           bsp    E         spc   ret
+                         ╚═════╩═════╝    ╚═════╩═════╝
 */
 
 / {
@@ -46,8 +56,6 @@
                                                                                      &lt NUM BSPC       &lt NAV E                 &lt SYM SPC        &lt FUN RET
 /*                                                                               ╚═══════════════════╩═════════════════╝        ╚═════════════════╩═══════════════════╝                                                                               */
                              >;
-                     };
-
                      NAV {
                              label = "Nav";
                              bindings = <
