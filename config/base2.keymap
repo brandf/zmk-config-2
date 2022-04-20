@@ -9,7 +9,7 @@
 #define U_CUT &kp LC(X)
 #define U_UND &kp LC(Z)
 
-#define COLEMAK 0
+#define RSTHD 0
 #define NAV 1
 #define NUM 2
 #define SYM 3
@@ -28,23 +28,11 @@
 * 8) arrange open/close and left/right things horizontally, up/down things vertically
 */
 
-/*
-             ╔═════╦═════╦═════╦═════╗    ╔═════╦═════╦═════╦═════╗
-                C     Y     F     K          Z     L     ,     U
- ╔═════╦═════╬═════╬═════╬═════╬═════╣    ╠═════╬═════╬═════╬═════╬═════╦═════╗
-    J     R     S     T     H     D          M     N     A     I     O     ;
- ╚═════╬═════╬═════╬═════╬═════╬═════╣    ╠═════╬═════╬═════╬═════╬═════╬═════╝
-          Z     V     G     P     B          X     W     .     Q     ?
-       ╚═════╩═════╩═════╬═════╬═════╣    ╠═════╬═════╬═════╩═════╩═════╝
-                           bsp    E         spc   ret
-                         ╚═════╩═════╝    ╚═════╩═════╝
-*/
-
 / {
         keymap {
                 compatible = "zmk,keymap";
-                COLEMAK {
-                        label = "Colemak";
+                RSTHD {
+                        label = "RSTHD";
                         bindings = <
 /*                                       ╔═══════════════════╦═══════════════════╦═══════════════════╦═════════════════╗        ╔═════════════════╦═══════════════════╦═══════════════════╦═══════════════════╗                                       */
                                                &kp C              &kp Y              &kp F              &kp K                       &kp Z              &kp L              &kp COMMA            &kp U
