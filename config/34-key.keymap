@@ -13,27 +13,8 @@
 #define L0 0
 #define L1 1
 #define L2 2
+#define L2 3
 
-#define LOC_G 0
-#define LOC_M (LOC_G+1)
-#define LOC_P (LOC_G+2)
-
-#define LOC_SQT 5
-#define LOC_DQT (LOC_SQT+1)
-#define LOC_V (LOC_SQT+2)
-
-#define LOC_X 20
-#define LOC_F (LOC_X+1)
-#define LOC_L (LOC_X+2)
-#define LOC_C (LOC_X+3)
-
-#define LOC_U 26
-#define LOC_O (LOC_U+1)
-#define LOC_Y (LOC_U+2)
-#define LOC_K (LOC_U+3)
-
-#define LOC_NAV 31
-#define LOC_SYM (LOC_NAV+3)
 
 
 /*
@@ -49,8 +30,7 @@
       │  Z  │  X  │  C  │  V  │  B  │      │  N  │  M  | gui | alt │ ctrl│
       ╰─────┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
                         │  L1 │ spc │      │ ret │  L2 │
-                        ╰──┬──┴─────╯      ╰─────┴──┬──╯
-                           ╰──────────{btc}─────────╯
+                        ╰─────┴─────╯      ╰─────┴─────╯
 
                                        L1
 
@@ -61,25 +41,37 @@
 ╰─────┼─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┼─────╯
       │ ctrl│ alt │ gui │ und │ rdo │      │ pgdn│ tab | gui | alt │ ctrl│
       ╰─────┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
-                        │  L1 │ spc │      │ ret │     │
+                        │ L3  │ spc │      │ ret │  L3 │
                         ╰─────┴─────╯      ╰─────┴─────╯
 
                                        L2
 
             ╭─────┬─────┬─────┬─────╮      ╭─────┬─────┬─────┬─────╮
- {F12} {F11}│{F}7 │{F}8 │{F}9 │ - $ │      │ ~ ` │  !  │  &  │  |  │ 
-╭──┴──┬──┴──┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┬─────╮
-│  =  │ * / │{F}4 │{F}5 │{F}6 │ + % │      │  '  │  "  │  ,  │  _  │  ;  │ shft│
+            │  7  │  8  │  9  │ - $ │      │ ~ ` │  !  │  &  │  |  │ 
+╭─────┬─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┬─────╮
+│  =  │ * / │  4  │  5  │  6  │ + % │      │ @ # │  "  │  ,  │  _  │  ;  │ shft│
 ╰─────┼─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┼─────╯
-      │  0  │{F}1 │{F}2 │{F}3 │  .  │      │ @ # │  ^  | gui | alt │ ctrl│
-      ╰──┬──┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
-       {F10}            │     │ spc │      │ ret │  L2 │
+      │  0  │  1  │  2  │  3  │  .  │      │  ^  │  '  | gui | alt │ ctrl│
+      ╰─────┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
+                        │ L3  │ spc │      │ ret │  L3 │
+                        ╰─────┴─────╯      ╰─────┴─────╯
+
+                                       L3
+
+            ╭─────┬─────┬─────┬─────╮      ╭─────┬─────┬─────┬─────╮
+            │ F7  │ F8  │ F9  │     │      │ vol+│ btc │ bt1 │ bt2 │ 
+╭─────┬─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┬─────╮
+│ F12 │ F11 │ F4  │ F5  │ F6  │     │      │ vol-│ ptsk│ ntsk│ stsk│     │ shft│
+╰─────┼─────┼─────┼─────┼─────┼─────┤      ├─────┼─────┼─────┼─────┼─────┼─────╯
+      │ F10 │ F1  │ F2  │ F3  │     │      │ mute│     | gui | alt │ ctrl│
+      ╰─────┴─────┴─────┼─────┼─────┤      ├─────┼─────┼─────┴─────┴─────╯
+                        │     │ spc │      │ ret │     │
                         ╰─────┴─────╯      ╰─────┴─────╯
 */
 / {
         keymap {
                 compatible = "zmk,keymap";
-                BASE {
+                L0 {
                             label = "L0";
                             bindings = <
 /*                                         ╭───────────────────┬───────────────────┬───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮        ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┬───────────────────┬───────────────────╮                                         */
@@ -93,34 +85,111 @@
 /*                                                                                 ╰───────────────────┴───────────────────╯        ╰───────────────────┴───────────────────╯                                                             */
                              >;
                      };
-                     NAV {
+                     L1 {
                              label = "L1";
                              bindings = <
 /*                                         ╭───────────────────┬───────────────────┬───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮        ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┬───────────────────┬───────────────────┬───────────────────╮                                         */
-                                                  U_CPY               U_PST                U_MIC              &none                         &none             &kp ESC             &kp UP               &kp BSPC
+                                                  U_CUT                 U_CPY              U_PST             &kp ESC                       &kp PG_UP           &kp DEL             &kp UP               &kp BSPC
 /* ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮        ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮ */
-          &kp LSHFT            &none             &kp LGUI              &kp LALT           &kp LCTRL          &kp C_MUTE                    &kp PG_UP           &kp LEFT            &kp DOWN             &kp RIGHT           &kp ENTER             &trans
+          &kp LSHFT            &slashes          &squares              &squiggles         &parens            &angles                       &kp HOME            &kp LEFT            &kp DOWN             &kp RIGHT         &kp END             &trans
 /* ╰╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╯ */
-                               U_CUT              U_UND               U_RDO          &kp C_VOLUME_DOWN   &kp C_VOLUME_UP                  &kp PG_DN           &kp HOME            &trans               &trans           &trans
+                               &kp LCTRL         &kp LALT              &kp RGUI            U_UND               U_RDO                       &kp PG_DN           &kp TAB              &trans               &trans           &trans
 /*                     ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                     */
-                                                                                           &none               &trans                       &trans              &none           
+                                                                                           &none               &trans                       &trans              &sl L3           
 /*                                                                                 ╰───────────────────┴───────────────────╯        ╰───────────────────┴───────────────────╯                                                             */
                              >;
                      };
 
-                     NUM {
+                     L2 {
                              label = "L2";
                              bindings = <
 /*                                         ╭───────────────────┬───────────────────┬───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮        ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┬───────────────────┬───────────────────╮                                         */
-                                                  &kp F7              &kp F8               &kp F9              &none                        &none            &kp NUM_7            &kp NUM_8            &kp NUM_9
+                                                  &kp N7              &kp N8               &kp N9           &minus_dollar                &tilde_grave        &kp EXCL             &kp AMPS             &kp PIPE
 /* ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮        ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮ */
-          &none               &kp F11             &kp F4              &kp F5               &kp F6              &kp F12                     &kp DOT           &kp NUM_4            &kp NUM_5            &kp NUM_6          &kp ENTER             &trans
+          &kp EQUAL           &start_slash        &kp N4              &kp N5               &kp N6           &plus_percent                  &at_hash          &kp DQT             &kp COMMA            &kp UNDER          &kp SEMI             &trans
 /* ╰╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╯ */
-                              &kp F10             &kp F1              &kp F2               &kp F3            &bt BT_CLR                   &kp COMMA          &kp NUM_1            &trans                &trans             &trans
+                              &kp  N0             &kp N1              &kp N2               &kp N3              &kp DOT                    &kp CARET          &kp SQT            &trans                &trans             &trans
+/*                     ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                     */
+                                                                                           &sl L3              &trans                       &trans            &none              
+/*                                                                                 ╰───────────────────┴───────────────────╯        ╰───────────────────┴───────────────────╯                                                             */
+                             >;
+                     };                     
+                     
+                     L3 {
+                             label = "L3";
+                             bindings = <
+/*                                         ╭───────────────────┬───────────────────┬───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮        ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┬───────────────────┬───────────────────╮                                         */
+                                                  &kp F7              &kp F8               &kp F9              &none                     &kp C_VOL_UP        &bt BT_CLR           &bt BT_SEL 0       &bt BT_SEL 1
+/* ╭╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮        ╭───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╮╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╮ */
+          &kp F12             &kp F11             &kp F4              &kp F5               &kp F6              &none                   &kp C_VOL_DOWN    &kp C_AL_PREV_TASK  &kp C_AL_NEXT_TASK &kp C_AL_SELECT_TASK      &none             &trans
+/* ╰╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────┤╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╯ */
+                              &kp F10             &kp F1              &kp F2               &kp F3              &none                      &kp C_MUTE         &kp K_BACK          &kp K_FORWARD       &kp K_REFRESH         &trans
 /*                     ╰───────────────────┴───────────────────┴───────────────────┼───────────────────┼───────────────────┤        ├───────────────────┼───────────────────┼───────────────────┴───────────────────┴───────────────────╯                     */
                                                                                            &none               &trans                       &trans            &none              
 /*                                                                                 ╰───────────────────┴───────────────────╯        ╰───────────────────┴───────────────────╯                                                             */
                              >;
                      };
       };
+      behaviors {
+        slashes: slashes {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp KP_SLASH>, <&kp BACKSLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        squares: squares {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp RBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        squiggles: squiggles {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp RBRC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        parens: parens {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp RPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        angles: angles {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp KP_SLASH>, <&kp BACKSLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        start_slash: start_slash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp KP_SLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        minus_dollar: minus_dollar {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp DOLLAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        plus_percent: plus_percent {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PLUS>, <&kp PERCENT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        at_hash: at_hash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp HASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        tilde_grave: tilde_grave {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&kp GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 };
