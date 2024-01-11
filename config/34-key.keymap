@@ -133,35 +133,35 @@
             label = "slashes";
             #binding-cells = <0>;
             bindings = <&kp KP_SLASH>, <&kp BACKSLASH>;
-            mods = <(MOD_LSFT│MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         squares: squares {
             compatible = "zmk,behavior-mod-morph";
             label = "squares";
             #binding-cells = <0>;
             bindings = <&kp LBKT>, <&kp RBKT>;
-            mods = <(MOD_LSFT│MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         squiggles: squiggles {
             compatible = "zmk,behavior-mod-morph";
             label = "squiggles";
             #binding-cells = <0>;
             bindings = <&kp LBRC>, <&kp RBRC>;
-            mods = <(MOD_LSFT│MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         parens: parens {
             compatible = "zmk,behavior-mod-morph";
             label = "parens";
             #binding-cells = <0>;
             bindings = <&kp LPAR>, <&kp RPAR>;
-            mods = <(MOD_LSFT│MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         angles: angles {
             compatible = "zmk,behavior-mod-morph";
             label = "angles";
             #binding-cells = <0>;
             bindings = <&kp KP_SLASH>, <&kp BACKSLASH>;
-            mods = <(MOD_LSFT│MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 };
